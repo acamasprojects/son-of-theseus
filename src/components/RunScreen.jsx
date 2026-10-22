@@ -65,7 +65,14 @@ export default function RunScreen({ run, makeChoice }) {
   return (
     <div className="sot-shell">
       {header}
-      <h2 className="sot-encounter-title">{currentEncounter.title}</h2>
+      <div className="sot-encounter-title-row">
+        <h2 className="sot-encounter-title">{currentEncounter.title}</h2>
+        {/* Combat encounters (Daedalus's degraded mechanical guardians, not
+            a living creature, not Asterion) get a visible identity instead
+            of being indistinguishable from any other hazard until you read
+            the prose. */}
+        {currentEncounter.tags.includes("combat") && <span className="sot-combat-badge">Combat</span>}
+      </div>
       {/* Body text can carry a double-newline for a paragraph break, most
           rooms are one beat and don't need it, but some (the lair) earn the
           pacing a break gives. */}

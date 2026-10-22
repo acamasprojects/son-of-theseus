@@ -7,12 +7,12 @@ the Thread, represents your light, your nerve, and your body all together, and i
 until a room gives you a reason to rest. Dialogue choices are sometimes gated by one of four stats
 (Cunning, Resolve, Instinct, Memory), so who Acamas is changes what the labyrinth lets him do.
 
-There's no combat system and no meta-progression between runs. Dying or escaping both end the
-descent, and the next one starts fresh. What carries over is smaller: a sense of how many times you've
-gone down, and how far you've gotten.
-
-This is an early build. The engine works, but the labyrinth itself (the actual rooms, Theseus's
-traces, the lair) is still mostly placeholder text while that gets written.
+A handful of encounters are confrontations with Daedalus's own degraded mechanical guardians, bronze
+and stone constructs still half-functioning after all this time, not living creatures, and not the
+thing in the lair. Combat resolves the same way everything else does: a stat check, not a separate
+system. There's no meta-progression between runs. Dying or escaping both end the descent, and the next
+one starts fresh. What carries over is smaller: a sense of how many times you've gone down, and how far
+you've gotten.
 
 ## Running it locally
 
