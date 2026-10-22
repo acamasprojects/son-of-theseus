@@ -27,7 +27,7 @@ export const encounters = [
     id: "early-rope",
     tags: ["early"],
     title: "A Frayed Thread",
-    body: "A length of old twine, half-rotted, tied to a stone. Your father's, or someone's. It leads two directions, both dark.",
+    body: "Old twine, tied to a stone, leading two directions, both dark. Not hers, Ariadne's rotted to nothing generations before this. Someone's, though. His, maybe, left behind on the way out, too relieved to be careful what he dropped.",
     choices: [
       {
         text: "Follow it the way he would have.",
@@ -203,19 +203,19 @@ export const encounters = [
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
-    body: "Bones, old and picked clean, arranged too neatly to be an accident. Someone, or something, sorts its dead.",
+    body: "Bones, old, picked clean, arranged too carefully to be an accident, more tended than violent. No sign of teeth in any of them. You don't know what to make of that yet, only that your gut flags it before your mind does.",
     choices: [
       {
-        text: "Keep moving, don't look too long.",
-        check: { stat: "instinct", difficulty: 5 },
+        text: "Keep moving. Don't look too long.",
+        check: { stat: "instinct", difficulty: 6 },
         onSuccess: { threadDelta: 0, resultBody: "Your body knows better than your curiosity does. You pass through untouched.", next: "continue" },
-        onFail: { threadDelta: -2, resultBody: "You linger a moment too long, and something in the dark notices you noticing.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You linger a moment too long, and something about the arrangement gets under your skin anyway.", next: "continue" },
       },
       {
         text: "Look closer anyway.",
         check: { stat: "resolve", difficulty: 7 },
-        onSuccess: { threadDelta: 1, resultBody: "You make yourself look, and find a detail that steadies you more than it should: these are old. Older than your father's hunt. This place was killing people long before him.", next: "continue" },
-        onFail: { threadDelta: -1, resultBody: "You look. You wish you hadn't.", next: "continue" },
+        onSuccess: { threadDelta: 1, resultBody: "You make yourself look, really look, and the detail that steadies you is the one that'll matter later, whatever did this wasn't eating.", next: "continue" },
+        onFail: { threadDelta: -1, resultBody: "You look. You wish you hadn't, not yet, not without knowing what it means.", next: "continue" },
       },
     ],
   },
@@ -223,17 +223,17 @@ export const encounters = [
     id: "mid-echo",
     tags: ["mid"],
     title: "An Echo That Answers",
-    body: "You call out, half-expecting silence. Something calls back, in a voice almost like an answer, almost like your own.",
+    body: "You call out, half-expecting silence. Something calls back, close enough to an answer to unsettle you, too shaped to be only stone. Not a voice. The memory of one, worn into the walls by however many years of being the only sound down here.",
     choices: [
       {
         text: "Answer it back, carefully.",
-        check: { stat: "cunning", difficulty: 7 },
-        onSuccess: { threadDelta: 1, resultBody: "You choose your words the way you'd choose a foothold. Whatever it is, it quiets, satisfied, or confused, you can't tell which.", next: "continue" },
-        onFail: { threadDelta: -2, resultBody: "Wrong words. The echo turns into something closer to a growl before it fades.", next: "continue" },
+        check: { stat: "cunning", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "You choose your words the way you'd choose a foothold, and whatever's left to hear it seems, almost, satisfied.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "Wrong words, or no words would have been right. The echo sharpens into something closer to a sound you don't want to name before it fades.", next: "continue" },
       },
       {
         text: "Say nothing. Keep walking.",
-        onSuccess: { threadDelta: -1, resultBody: "The silence you leave behind feels like its own kind of answer. You don't like what it might mean.", next: "continue" },
+        onSuccess: { threadDelta: -2, resultBody: "The silence you leave behind feels like its own kind of answer. You don't like what it might mean.", next: "continue" },
       },
     ],
   },
@@ -241,16 +241,16 @@ export const encounters = [
     id: "mid-rest",
     tags: ["mid"],
     title: "A Still Room",
-    body: "A chamber with no exits but the one you came in through, and the one ahead. No bones here. No dust disturbed in a long time. It feels, almost, safe.",
+    body: "A chamber with no exits but the one you came through and the one ahead. No bones here. No dust disturbed in a long time. It feels, almost, like the one room in this place that was never meant to hurt anyone.",
     choices: [
       {
         text: "Rest here a while.",
-        onSuccess: { threadDelta: 2, resultBody: "You let yourself breathe. It helps more than it should.", next: "continue" },
+        onSuccess: { threadDelta: 2, resultBody: "You let yourself believe it, just for a minute. It helps more than it should.", next: "continue" },
       },
       {
         text: "Don't trust it. Keep moving.",
         check: { stat: "resolve", difficulty: 6 },
-        onSuccess: { threadDelta: 0, resultBody: "You're right not to trust it, and right to move on. Nothing here was ever going to be free.", next: "continue" },
+        onSuccess: { threadDelta: 0, resultBody: "You're right not to trust it, and right to move on. Nothing here was ever actually free.", next: "continue" },
         onFail: { threadDelta: -1, resultBody: "You talk yourself out of resting and regret it almost immediately.", next: "continue" },
       },
     ],
