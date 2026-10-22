@@ -3,8 +3,13 @@
 // 'boss' is always last, 'early'/'mid' fill the middle and get shuffled by
 // src/utils/generateRun.js.
 //
-// This is placeholder content for the engine build. The real labyrinth gets
-// written once the mechanics are solid — see the project README.
+// 'combat' is a separate, additional tag, not a tier, an encounter carries
+// it alongside 'early' or 'mid' (e.g. tags: ["mid", "combat"]). It marks a
+// confrontation with one of Daedalus's own degraded mechanical guardians,
+// never a living creature, never Asterion, that distinction matters, see
+// the lair's reveal. RunScreen shows a Combat badge when this tag is
+// present. generateRun.js doesn't look at this tag at all, so adding or
+// removing it never affects sequencing.
 //
 // Choice shape: `check` is optional. If present, `onFail` is required too
 // (the check can go either way). If absent, only `onSuccess` is read, since

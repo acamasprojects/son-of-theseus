@@ -129,7 +129,18 @@ button:focus-visible {
 .sot-stat { display: flex; flex-direction: column; align-items: center; color: var(--text-faint); }
 .sot-stat-value { color: var(--text-bright); font-size: 14px; font-weight: 700; }
 
-.sot-encounter-title { font-family: var(--font-display); font-size: 24px; color: var(--text-bright); margin: 0 0 14px; }
+.sot-encounter-title-row { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; flex-wrap: wrap; }
+.sot-encounter-title { font-family: var(--font-display); font-size: 24px; color: var(--text-bright); margin: 0; }
+.sot-combat-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--danger-2);
+  border: 1px solid var(--danger);
+  border-radius: 2px;
+  padding: 2px 8px;
+}
 .sot-encounter-body { font-size: 16.5px; line-height: 1.75; color: var(--text); margin: 0 0 28px; }
 
 .sot-choice-list { display: flex; flex-direction: column; gap: 10px; }
