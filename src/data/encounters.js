@@ -468,6 +468,58 @@ export const encounters = [
     ],
   },
   {
+    id: "mid-second-marking",
+    tags: ["mid"],
+    title: "The Second Marking",
+    body: "A symbol scratched into the stone ahead, confident, deliberate, the kind of mark that wants to be trusted. It's pointing you somewhere with total certainty, and certainty, down here, has never once meant safety.",
+    choices: [
+      {
+        text: "Trust your own reading over the mark's claim.",
+        check: { stat: "cunning", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "You see it for what it is, bait left by something that benefits from confident travelers all going exactly one direction. You go the other way.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You follow it. It was exactly as confident, and exactly as wrong, as it looked.", next: "continue" },
+      },
+      {
+        text: "Follow the mark. Someone left it for a reason.",
+        onSuccess: { threadDelta: -2, resultBody: "The reason wasn't yours.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-stars-would-have-said",
+    tags: ["mid"],
+    title: "What the Stars Would Have Said",
+    body: "No sky down here, no stars, but you remember him teaching you to read them anyway, insisting a sense of direction was a thing you built above ground so it would still work when you couldn't see anything at all.",
+    choices: [
+      {
+        text: "Trust the direction his lessons left in you.",
+        check: { stat: "memory", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "It works, somehow. Direction holds even without a sky to check it against.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You trusted a lesson built for open air, and it doesn't translate the way you needed it to down here.", next: "continue" },
+      },
+      {
+        text: "Guess. The lessons were for somewhere else.",
+        onSuccess: { threadDelta: -2, resultBody: "You're probably right that they don't apply. It costs you something to bet on that anyway.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-just-the-walking",
+    tags: ["mid"],
+    title: "Just the Walking",
+    body: "No puzzle here. No decision that actually matters. Just the walking, and how much of it there's already been, and how much there probably still is.",
+    choices: [
+      {
+        text: "Let the rhythm of it carry you. Stop thinking for a while.",
+        onSuccess: { threadDelta: 2, resultBody: "You stop narrating it to yourself. It helps more than thinking ever did.", next: "continue" },
+      },
+      {
+        text: "Count the steps. Measuring it is its own kind of control.",
+        onSuccess: { threadDelta: -1, resultBody: "You measure it instead, and the number you get back isn't the comfort you wanted it to be.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
