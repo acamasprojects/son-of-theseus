@@ -18,7 +18,7 @@ export default function App() {
     <div className="sot-page">
       {!store.run && <StartScreen meta={store.meta} startRun={startRun} />}
       {store.run?.status === "active" && <RunScreen run={store.run} makeChoice={makeChoice} />}
-      {store.run && store.run.status !== "active" && <EndScreen run={store.run} startRun={startRun} />}
+      {store.run && store.run.status !== "active" && <EndScreen run={store.run} meta={store.meta} startRun={startRun} />}
     </div>
   );
 }
