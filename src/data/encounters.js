@@ -257,6 +257,24 @@ export const encounters = [
     ],
   },
   {
+    id: "early-grinding-watch",
+    tags: ["early", "combat"],
+    title: "The Grinding Watch",
+    body: "A shape in the dark unfolds, bronze gone green with age, joints grinding where oil should be, but moving. Still moving. Still, after all this time, doing exactly the one thing it was built to do.",
+    choices: [
+      {
+        text: "Get inside its reach before it completes the swing.",
+        check: { stat: "instinct", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "You read the rhythm of something that's been running the same motion for longer than you've been alive, and slip inside it a half-second before it closes.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You misjudge the gap. Bronze doesn't care how old it is when it connects.", next: "continue" },
+      },
+      {
+        text: "Wait for an opening in its rhythm instead of forcing one.",
+        onSuccess: { threadDelta: -1, resultBody: "Slower, and the opening does come, eventually, the way it always has for whatever's walked this far before you.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
@@ -521,6 +539,42 @@ export const encounters = [
       {
         text: "Count the steps. Measuring it is its own kind of control.",
         onSuccess: { threadDelta: -1, resultBody: "You measure it instead, and the number you get back isn't the comfort you wanted it to be.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-daedalus-never-closed",
+    tags: ["mid", "combat"],
+    title: "What Daedalus Never Quite Closed",
+    body: "This one still has most of itself. Whatever wore the others down to half-function missed this guardian, tucked deeper, better protected, closer to working the way it was actually built to.",
+    choices: [
+      {
+        text: "Find the mechanism's blind spot, the gap even Daedalus never quite closed.",
+        check: { stat: "cunning", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "Nothing's perfect, not even genius, especially not genius under deadline. You find the seam, and the whole thing stops caring that you're there.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You go looking for a flaw that either isn't there or isn't where you're looking, and it finds you first.", next: "continue" },
+      },
+      {
+        text: "Meet it head-on. Strength against stone.",
+        onSuccess: { threadDelta: -2, resultBody: "Stone wins arguments like that more often than it loses them. You come through anyway, worse for it.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-rhythm-nothing-governs",
+    tags: ["mid", "combat"],
+    title: "A Rhythm Nothing Governs Anymore",
+    body: "This one isn't moving to any rhythm at all. Whatever once governed its motion broke a long time ago, and what's left just swings, grinds, strikes, on no schedule a mind could read.",
+    choices: [
+      {
+        text: "Match its chaos instead of trying to predict it.",
+        check: { stat: "instinct", difficulty: 8 },
+        onSuccess: { threadDelta: 1, resultBody: "You stop trying to read a pattern that was never going to resolve into one, and let your body answer chaos with chaos of its own. It works.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You guess wrong about where the unpredictable thing goes next, which was always the whole danger of it.", next: "continue" },
+      },
+      {
+        text: "Hang back and wait for true stillness.",
+        onSuccess: { threadDelta: -2, resultBody: "It comes, eventually, everything winds down eventually, you're just not sure you can afford to wait for it.", next: "continue" },
       },
     ],
   },
