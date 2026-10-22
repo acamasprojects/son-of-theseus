@@ -96,6 +96,58 @@ export const encounters = [
     ],
   },
   {
+    id: "early-stopped-running",
+    tags: ["early"],
+    title: "Where He Stopped Running",
+    body: "A wide landing, flatter than the passage should allow, like it was worn down by someone standing still a long time. Wax pooled in the seam of the floor, burnt all the way down. He waited here. Long enough to use up every torch he carried before he moved again.",
+    choices: [
+      {
+        text: "Sit where he sat.",
+        check: { stat: "resolve", difficulty: 6 },
+        onSuccess: { threadDelta: 2, resultBody: "You let yourself feel what he must have felt, and it doesn't break you the way you were afraid it would. He was scared here. You can be scared here too and keep going.", next: "continue" },
+        onFail: { threadDelta: -1, resultBody: "You sit, and the stillness that held him starts to hold you too. It takes real effort to stand back up.", next: "continue" },
+      },
+      {
+        text: "Keep moving. Stillness is how the place eats time.",
+        onSuccess: { threadDelta: 0, resultBody: "You don't let yourself stop. Some part of you suspects that's exactly what kept him alive.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-what-you-came-for",
+    tags: ["early"],
+    title: "What You Came For",
+    body: "A long stretch with nothing in it, which is its own kind of room. Nothing to solve, nothing to read, nothing but the question that's been walking behind you since the threshold: why are you actually here.",
+    choices: [
+      {
+        text: "Answer honestly, even if it's not flattering.",
+        check: { stat: "memory", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "It isn't to finish what he started. It isn't even really about him. You wanted to know if you'd survive something he never told you about. You might.", next: "continue" },
+        onFail: { threadDelta: -1, resultBody: "You reach for an answer and come up with three contradictory ones, none of them quite true. You're not ready to know yet, apparently.", next: "continue" },
+      },
+      {
+        text: "Don't answer it. Some questions are for after.",
+        onSuccess: { threadDelta: 0, resultBody: "You put it down. It doesn't stay down for long, but it stays down for now.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-two-doors",
+    tags: ["early"],
+    title: "Two Doors, No Names",
+    body: "The passage splits clean in two, no marks, no draft, no sound favoring either side. Whatever decided this layout didn't leave you a reason.",
+    choices: [
+      {
+        text: "Go left.",
+        onSuccess: { threadDelta: -1, resultBody: "You go left for no better reason than it was closer to your right hand. The maze doesn't care about your reasons either way.", next: "continue" },
+      },
+      {
+        text: "Go right.",
+        onSuccess: { threadDelta: -1, resultBody: "You go right for no better reason than it wasn't left. As good a method as any, down here.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
