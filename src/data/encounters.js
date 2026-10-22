@@ -310,6 +310,58 @@ export const encounters = [
     ],
   },
   {
+    id: "mid-half-remembered-warning",
+    tags: ["mid"],
+    title: "The Half-Remembered Warning",
+    body: "Something he said once, drunk, or grieving, you were never sure which, about this place. You didn't think you'd need it. You're standing in front of exactly the thing it was about, and you can almost, almost, get the words back.",
+    choices: [
+      {
+        text: "Reach for the exact words, not just the shape of them.",
+        check: { stat: "memory", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "It comes back whole, all at once, in his actual voice. Whatever you were supposed to do here, you do it right, because for one second you remembered him instead of just missing him.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You reach for it and get a different year, a different story, close enough to feel right and wrong enough to cost you. You act on a memory that wasn't the one you needed.", next: "continue" },
+      },
+      {
+        text: "Don't trust half a memory. Guess fresh instead.",
+        onSuccess: { threadDelta: -2, resultBody: "You let the half-remembered thing go and work it out on your own. Slower. Costlier. At least it's actually yours.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-air-runs-thin",
+    tags: ["mid"],
+    title: "Where the Air Runs Thin",
+    body: "The passage narrows into something that was never built for breathing, old smoke and older dust caught with nowhere to go and no reason to settle.",
+    choices: [
+      {
+        text: "Control your breathing. Move economical, not fast.",
+        check: { stat: "instinct", difficulty: 8 },
+        onSuccess: { threadDelta: 1, resultBody: "Your body rations itself without being told to. You're through before the thinness of it becomes a real problem.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You fight your own lungs the whole way, panic spending air faster than care would have, and you come out the other side having used more of yourself than the distance should have cost.", next: "continue" },
+      },
+      {
+        text: "Push through fast before you think too hard about it.",
+        onSuccess: { threadDelta: -2, resultBody: "Brute speed over technique. It works. It costs more than technique would have, but it works.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-turning-back",
+    tags: ["mid"],
+    title: "The Turning Back",
+    body: "The passage behind you is still open. It would take less out of you to leave than to keep going. No one down here would know, or care, if you did.",
+    choices: [
+      {
+        text: "Keep walking. It was never actually a question.",
+        onSuccess: { threadDelta: 1, resultBody: "You don't dignify the thought with real consideration. The certainty of that costs you nothing. It might even be worth something.", next: "continue" },
+      },
+      {
+        text: "Let yourself imagine turning back, just for a moment, before you keep going anyway.",
+        onSuccess: { threadDelta: -1, resultBody: "You let the thought all the way in before you close the door on it yourself. Honesty like that isn't free down here, but you go on regardless.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
