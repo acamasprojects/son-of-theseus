@@ -200,6 +200,58 @@ export const encounters = [
     ],
   },
   {
+    id: "early-trick-of-light",
+    tags: ["early"],
+    title: "A Trick of the Light",
+    body: "Three passages branch ahead, lit differently somehow, though you carry the only torch. You'd swear you can see further down one than the others. You'd also swear this place doesn't do anyone favors for free.",
+    choices: [
+      {
+        text: "Work out which \"passage\" is just a reflection.",
+        check: { stat: "cunning", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "You catch the trick, polished stone throwing your own torchlight back at you dressed up as distance. One fewer wrong turn than you'd have taken otherwise.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You walk confidently toward the one that looked deepest, and the wall meets you a lot sooner than the light promised it would.", next: "continue" },
+      },
+      {
+        text: "Test each one by throwing a stone first.",
+        onSuccess: { threadDelta: -1, resultBody: "Slower, and a little undignified, and it works anyway.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-weight-of-doubt",
+    tags: ["early"],
+    title: "The Weight of Doubt",
+    body: "For the first time since the threshold, you let yourself actually consider it: you might not make it out. Not might, in the abstract, the way everyone might. Might, specifically, right here, the way the air has started to feel.",
+    choices: [
+      {
+        text: "Sit with the fear instead of pushing it down.",
+        check: { stat: "resolve", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "Naming it honestly, actually looking at the shape of it, takes some of its power away. Not all. Enough.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "Naming it just makes it realer. You weren't ready for that version of honest yet.", next: "continue" },
+      },
+      {
+        text: "Push it down. There's no room for that thought right now.",
+        onSuccess: { threadDelta: -1, resultBody: "You put it away. It doesn't go far.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-losing-the-day",
+    tags: ["early"],
+    title: "Losing the Day",
+    body: "You've stopped being able to guess how long you've been down here. Time doesn't pass in this place so much as accumulate, and you've lost the thread of counting it.",
+    choices: [
+      {
+        text: "Count anyway, just to have something to hold onto.",
+        onSuccess: { threadDelta: 1, resultBody: "You count, knowing it's probably wrong, needing it anyway.", next: "continue" },
+      },
+      {
+        text: "Let it go. Counting was never going to get you out faster.",
+        onSuccess: { threadDelta: -1, resultBody: "You let the number go. It doesn't come back.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
