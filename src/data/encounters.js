@@ -370,12 +370,12 @@ export const encounters = [
       {
         text: "Stay with it. Let it be true. Carry it out whole, whatever it costs you.",
         check: { stat: "resolve", difficulty: 8 },
-        onSuccess: { threadDelta: 0, resultBody: "You hold it. All of it, your father's story amended in real time by the actual shape of a dead man's skull. You walk out with less glory than he came back with and more truth than he ever told anyone, including you.", next: "end-escaped" },
-        onFail: { threadDelta: -3, resultBody: "You try to hold it and it holds you instead. Not a monster. Not a fight. Just the unbearable, quiet weight of understanding exactly what your father let the world believe, for the rest of his life, to stay a hero.", next: "end-dead" },
+        onSuccess: { threadDelta: 0, resultBody: "You hold it. All of it, your father's story amended in real time by the actual shape of a dead man's skull. You walk out with less glory than he came back with and more truth than he ever told anyone, including you.", next: "end-escaped", ending: "truth" },
+        onFail: { threadDelta: -3, resultBody: "You try to hold it and it holds you instead. Not a monster. Not a fight. Just the unbearable, quiet weight of understanding exactly what your father let the world believe, for the rest of his life, to stay a hero.", next: "end-dead", ending: "broken" },
       },
       {
         text: "Leave it buried. Let the story stay what it's always been.",
-        onSuccess: { threadDelta: -1, resultBody: "You walk out the way the story says you're supposed to. Whole. Victorious. No more honest than the version that would've sent thirteen more children in after you.", next: "end-escaped" },
+        onSuccess: { threadDelta: -1, resultBody: "You walk out the way the story says you're supposed to. Whole. Victorious. No more honest than the version that would've sent thirteen more children in after you. Somewhere, someday, maybe your own son stands where you're standing now, reading a name scratched by a hand gentler than hate, wondering why nobody ever told him.", next: "end-escaped", ending: "buried" },
       },
     ],
   },

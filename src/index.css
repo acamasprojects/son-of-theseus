@@ -170,5 +170,6 @@ button:focus-visible {
 .sot-end-status { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin: 0 0 8px; }
 .sot-end-status-dead { color: var(--danger-2); }
 .sot-end-status-escaped { color: var(--thread-2); }
+.sot-end-status-buried { color: var(--text-dim); }
 .sot-end-summary { font-size: 17px; line-height: 1.7; color: var(--text); text-align: center; margin: 0 0 32px; font-style: italic; }
 .sot-end-actions { display: flex; justify-content: center; }
