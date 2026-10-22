@@ -365,13 +365,17 @@ export const encounters = [
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
-    body: "The walls open into something too large to be a room. Whatever lived here, whatever your father fought, left more of itself behind than any story said. You understand, standing here, that the stories were never about the monster. They were about what it takes to leave.",
+    body: "The chamber doesn't open into violence. It opens into bones, old enough that moss has had a generation to soften them, a ribcage too human to have belonged to any bull. Horns, yes, fused at the skull, but wrong, the way a birth goes wrong, not the way a god's curse is supposed to look. Someone scratched a name into the stone beside the remains, in a hand gentler than hate. Not \"Minotaur.\" Not \"the beast.\" Asterion. A name, not a label.\n\nYou think of every room behind you. The long fall. The thin air. The weight you carried and set down. Fourteen a year, for years, and not one mark on these bones that looks like teeth. Whatever killed them, it wasn't waiting here to be fought. It was the maze itself, the whole time, exactly the way it almost took you.",
     choices: [
       {
-        text: "Find the way out your father found.",
-        check: { stat: "instinct", difficulty: 8 },
-        onSuccess: { threadDelta: 0, resultBody: "You find it. Not the thread, something older than that, a path worn into the stone by the only two feet that ever walked it twice. You follow your father out.", next: "end-escaped" },
-        onFail: { threadDelta: -3, resultBody: "You don't find it, not in time. Whatever's left of this place decides it has waited long enough.", next: "end-dead" },
+        text: "Stay with it. Let it be true. Carry it out whole, whatever it costs you.",
+        check: { stat: "resolve", difficulty: 8 },
+        onSuccess: { threadDelta: 0, resultBody: "You hold it. All of it, your father's story amended in real time by the actual shape of a dead man's skull. You walk out with less glory than he came back with and more truth than he ever told anyone, including you.", next: "end-escaped" },
+        onFail: { threadDelta: -3, resultBody: "You try to hold it and it holds you instead. Not a monster. Not a fight. Just the unbearable, quiet weight of understanding exactly what your father let the world believe, for the rest of his life, to stay a hero.", next: "end-dead" },
+      },
+      {
+        text: "Leave it buried. Let the story stay what it's always been.",
+        onSuccess: { threadDelta: -1, resultBody: "You walk out the way the story says you're supposed to. Whole. Victorious. No more honest than the version that would've sent thirteen more children in after you.", next: "end-escaped" },
       },
     ],
   },
