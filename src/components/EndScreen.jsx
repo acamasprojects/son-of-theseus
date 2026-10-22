@@ -1,12 +1,12 @@
+import { getEndingDisplay } from "../utils/endingDisplay.js";
+
 export default function EndScreen({ run, meta, startRun }) {
   const lastEntry = run.log[run.log.length - 1];
-  const dead = run.status === "dead";
+  const { title, statusClass } = getEndingDisplay(run);
 
   return (
     <div className="sot-shell">
-      <div className={`sot-end-status ${dead ? "sot-end-status-dead" : "sot-end-status-escaped"}`}>
-        {dead ? "The Labyrinth Claims You" : "You Follow Him Out"}
-      </div>
+      <div className={`sot-end-status ${statusClass}`}>{title}</div>
       <p className="sot-end-summary">{lastEntry?.resultBody}</p>
       <div className="sot-end-actions">
         <button type="button" className="sot-btn sot-btn-primary" onClick={startRun}>

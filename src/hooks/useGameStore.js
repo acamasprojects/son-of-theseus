@@ -122,6 +122,11 @@ export function useGameStore() {
           checkResult,
           resultBody: outcome.resultBody,
           threadDelta: outcome.threadDelta,
+          // Only set on a terminal outcome (see boss-lair's two escape
+          // choices) — lets EndScreen tell apart endings that share the
+          // same run.status (e.g. two different ways to survive) instead of
+          // showing identical framing for genuinely different outcomes.
+          ending: outcome.ending || null,
           at: Date.now(),
         };
 
