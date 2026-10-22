@@ -148,6 +148,58 @@ export const encounters = [
     ],
   },
   {
+    id: "early-riddle",
+    tags: ["early"],
+    title: "A Riddle in the Dark",
+    body: "Words carved at head height, in a hand too deliberate to be panic. A riddle, or a warning wearing a riddle's shape, the kind of thing that's only safe to ignore if you're certain, and you're not.",
+    choices: [
+      {
+        text: "Work it out.",
+        check: { stat: "cunning", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "It's a warning, not a trap, plain once you see it. Heeding it spares you something you'll never know the shape of, which is the best kind of danger to survive.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You solve it wrong, and worse, you solve it confidently. Being certain and being correct turn out to be different things down here.", next: "continue" },
+      },
+      {
+        text: "Whatever built this wants you reading instead of moving. Walk past.",
+        onSuccess: { threadDelta: 0, resultBody: "You'll never know if it would have helped. That's the trade for not finding out if it would have hurt.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-copper-smell",
+    tags: ["early"],
+    title: "The Smell of Copper",
+    body: "A smell on the air, faint, unmistakable, old enough that it shouldn't still carry this far. Something bled here, or something bleeds still.",
+    choices: [
+      {
+        text: "Follow your gut, not the straightest path.",
+        check: { stat: "instinct", difficulty: 6 },
+        onSuccess: { threadDelta: 1, resultBody: "Your body steers you around whatever left that smell before your mind finishes deciding to be afraid of it. You never find out what it was. You'd like to keep it that way.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You second-guess the pull in your gut and walk the straight way instead. The smell gets stronger before the passage finally turns.", next: "continue" },
+      },
+      {
+        text: "Ignore it. There's only one way through regardless.",
+        onSuccess: { threadDelta: -1, resultBody: "Smell doesn't change geometry. You walk through it either way, you just do it with your eyes open this time.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-ariadne-loom",
+    tags: ["early"],
+    title: "Ariadne's Loom",
+    body: "An old spindle, half-buried, the thread long since rotted to nothing. Not his. Not the thing he fought. Hers, the one who actually solved this place, who handed him the one tool that mattered and got left out of every version of the story that followed.",
+    choices: [
+      {
+        text: "Take a moment for her.",
+        onSuccess: { threadDelta: 1, resultBody: "No one carved her name into anything down here. He got the sword story. You're standing in the one piece of this place that was ever actually hers, and that has to be enough, because it's all there is.", next: "continue" },
+      },
+      {
+        text: "Keep moving. It's rotted string, not a thread anymore, it won't help you.",
+        onSuccess: { threadDelta: -1, resultBody: "You're probably right that it can't help you. You walk on anyway feeling like you left something unpaid.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
