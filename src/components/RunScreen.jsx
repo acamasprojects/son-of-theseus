@@ -66,7 +66,14 @@ export default function RunScreen({ run, makeChoice }) {
     <div className="sot-shell">
       {header}
       <h2 className="sot-encounter-title">{currentEncounter.title}</h2>
-      <p className="sot-encounter-body">{currentEncounter.body}</p>
+      {/* Body text can carry a double-newline for a paragraph break, most
+          rooms are one beat and don't need it, but some (the lair) earn the
+          pacing a break gives. */}
+      {currentEncounter.body.split("\n\n").map((paragraph, i) => (
+        <p key={i} className="sot-encounter-body">
+          {paragraph}
+        </p>
+      ))}
       <div className="sot-choice-list">
         {currentEncounter.choices.map((choice, index) => {
           // A choice with no plausible odds, even the best roll wouldn't
