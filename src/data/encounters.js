@@ -362,6 +362,60 @@ export const encounters = [
     ],
   },
   {
+    id: "mid-the-count",
+    tags: ["mid"],
+    title: "The Count",
+    body: "Stones set into the floor, evenly spaced, except they aren't, not quite, some narrower than others in a pattern too deliberate to be wear. You remember, suddenly, your father counting under his breath once, years ago, a cadence that never made sense until right now.",
+    choices: [
+      {
+        text: "Count it exactly the way he did.",
+        check: { stat: "memory", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "The pattern holds. You cross on a rhythm that was never really yours, and it carries you anyway.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You misremember the count by one, and the floor doesn't forgive rounding errors.", next: "continue" },
+      },
+      {
+        text: "Test each stone yourself, slow and careful.",
+        onSuccess: { threadDelta: -2, resultBody: "Safer, and slower, and the kind of careful that costs you something just by taking this long.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-what-he-never-said",
+    tags: ["mid"],
+    title: "What He Never Said",
+    body: "He told the story a hundred times, at feasts, to kings, to you. Not once, not a single telling, did he say any of their names. You're starting to understand the silence wasn't modesty. It was the only way he could keep telling it at all.",
+    choices: [
+      {
+        text: "Decide you'll say them, when you tell this your way.",
+        check: { stat: "resolve", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "It isn't much, a resolution made alone in the dark nobody else will ever confirm you kept. It's still more honesty than he ever managed, and that has to count for something.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You reach for the resolve to do it differently and come up short, and understand, a little, why he never reached for it either.", next: "continue" },
+      },
+      {
+        text: "Let it go. It's his story, not yours to fix.",
+        onSuccess: { threadDelta: -1, resultBody: "You're probably right. It still costs you something to decide that.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-weight-of-running",
+    tags: ["mid"],
+    title: "The Weight of Running",
+    body: "Somewhere above, stone shifts, not falling, settling, which is worse, because settling stone doesn't stop on its own. The passage ahead is the only direction that isn't closing.",
+    choices: [
+      {
+        text: "Run. Don't think about the ceiling, just the floor in front of you.",
+        check: { stat: "instinct", difficulty: 8 },
+        onSuccess: { threadDelta: 1, resultBody: "You make it through on legs that know better than to listen to how scared you are.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You don't move fast enough, and the ceiling takes a piece of the margin you thought you had.", next: "continue" },
+      },
+      {
+        text: "Move steady. Trust the structure to hold a little longer than it looks like it will.",
+        onSuccess: { threadDelta: -2, resultBody: "Slower, calculated, and right, this time, about how much longer it had.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
