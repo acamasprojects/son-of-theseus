@@ -256,6 +256,60 @@ export const encounters = [
     ],
   },
   {
+    id: "mid-walls-remember-moving",
+    tags: ["mid"],
+    title: "The Walls Remember Moving",
+    body: "The passage behind you doesn't match the one you walked a moment ago. Not gone, wrong, a door where there was wall, stairs where there was floor. Daedalus's genius was never the maze itself. It's that the maze is still being built.",
+    choices: [
+      {
+        text: "Map it by feel, not by sight. Trust the pattern under the wrongness.",
+        check: { stat: "cunning", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "You find the logic underneath it. The walls aren't moving at random, they're moving around something, and once you see that, you can move with it instead of against it.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You follow a certainty that turns out to be false, and you don't just lose ground, you lose track of how much. Time stops meaning what it meant a minute ago.", next: "continue" },
+      },
+      {
+        text: "Stop. Don't move again until it stops moving.",
+        onSuccess: { threadDelta: -1, resultBody: "You wait it out, which costs you, standing still down here always does, but it costs you less than guessing wrong would have.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-long-fall",
+    tags: ["mid"],
+    title: "The Long Fall",
+    body: "A bridge, or what's left of one, over a dark deep enough that dropping a stone into it never answers the question of how deep.",
+    choices: [
+      {
+        text: "Cross on what's left of it. Trust your feet over your eyes.",
+        check: { stat: "instinct", difficulty: 8 },
+        onSuccess: { threadDelta: 1, resultBody: "You cross clean, your body finding weight-bearing stone your eyes never would have picked out in time.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You go down with a stone that wasn't as solid as it looked, and claw your way back up on nothing but will. You're across. You're not the same amount of across you were a minute ago.", next: "continue" },
+      },
+      {
+        text: "Find another way around, however long it takes.",
+        onSuccess: { threadDelta: -2, resultBody: "The detour costs you real time and more of yourself than you expected a walk to cost. It also costs you nothing you can't afford to lose.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-didnt-make-it-out",
+    tags: ["mid"],
+    title: "What Didn't Make It Out",
+    body: "A sandal, a single one, too small to be his, tangled in old rope near the drop. Not his. One of the fourteen he was supposed to bring home, who didn't make it as far as he did.",
+    choices: [
+      {
+        text: "Carry it with you, as far as you can.",
+        check: { stat: "resolve", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "It isn't about finishing some promise he made. It's about proving this place doesn't get to erase every single one of them.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You carry it exactly long enough to understand you can't carry what it actually means, and you set it down anyway, heavier for having tried.", next: "continue" },
+      },
+      {
+        text: "Leave it where it fell. You can't save what's already lost.",
+        onSuccess: { threadDelta: -1, resultBody: "You're probably right. It still costs you something to be right about it.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
