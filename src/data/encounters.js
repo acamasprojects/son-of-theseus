@@ -42,6 +42,60 @@ export const encounters = [
     ],
   },
   {
+    id: "early-weaver-mark",
+    tags: ["early"],
+    title: "The Weaver's Mark",
+    body: "Scratches in the stone, not random, a pattern that repeats and almost resolves into sense before it doesn't. Daedalus built this place to be solved, once, by one man, with help he wasn't supposed to have. Everything since has been the maze trying to forget how.",
+    choices: [
+      {
+        text: "Trace the pattern to where it breaks.",
+        check: { stat: "cunning", difficulty: 6 },
+        onSuccess: { threadDelta: 1, resultBody: "It breaks the same place it always did, where the help stopped being enough. You know the shape of the trap even if you can't see it yet.", next: "continue" },
+        onFail: { threadDelta: -1, resultBody: "You lose the thread of it, literally. There was a version of this exact pun your father would have made, and it makes you feel nothing but tired.", next: "continue" },
+      },
+      {
+        text: "Ignore it. Patterns are how the place gets you thinking instead of moving.",
+        onSuccess: { threadDelta: 0, resultBody: "You walk past something that wanted to be understood. It'll wait.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-seven-names",
+    tags: ["early"],
+    title: "Seven Names",
+    body: "Scratched into the base of the wall, low, where a frightened hand would reach without standing: seven names, none of them his. The tribute paid before him, the ones the stories don't follow past the door.",
+    choices: [
+      {
+        text: "Read them. All of them.",
+        check: { stat: "memory", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "You read every name like it's owed to them. One of them, you realize, is carved twice, in two different hands. Someone else read this wall before you. Recently.", next: "continue" },
+        onFail: { threadDelta: -1, resultBody: "You read until the names blur into shapes that aren't letters anymore, and you can't tell if that's the dark or you.", next: "continue" },
+      },
+      {
+        text: "Keep walking. They're not why you're here.",
+        onSuccess: { threadDelta: -1, resultBody: "You're not wrong. You're also not sure that's true.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-narrowing",
+    tags: ["early", "mid"],
+    title: "The Narrowing",
+    body: "The passage tightens, stone pressing from both sides until it's a question whether you fit at all. Somewhere past it, air moves, which means somewhere past it is a room.",
+    choices: [
+      {
+        text: "Go sideways, exhale, trust your body.",
+        check: { stat: "instinct", difficulty: 6 },
+        onSuccess: { threadDelta: 0, resultBody: "Your body remembers how to be small before your mind decides to let it. You're through.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You fight the stone instead of listening to it, and it wins the argument your skin will remember.", next: "continue" },
+      },
+      {
+        text: "Force it straight on.",
+        onSuccess: { threadDelta: -1, resultBody: "You make it through on will alone, which is a currency that doesn't spend the same way twice.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
