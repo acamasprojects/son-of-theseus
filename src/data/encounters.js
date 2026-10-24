@@ -275,6 +275,60 @@ export const encounters = [
     ],
   },
   {
+    id: "early-smell-like-home",
+    tags: ["early"],
+    title: "A Smell Like Home",
+    body: "Woodsmoke, faint, and under it, something closer to bread than anything a labyrinth should produce. It doesn't belong here. It belongs to a kitchen you haven't stood in for years, and for one disorienting second you're not sure which place is the real one.",
+    choices: [
+      {
+        text: "Follow the memory all the way, instead of flinching from it.",
+        check: { stat: "memory", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "You let yourself actually be there for a second, warm, fed, unafraid. It's grounding in a way nothing else down here has managed.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "The memory turns on you halfway through, stops being about what you had and starts being about how far you are from it.", next: "continue" },
+      },
+      {
+        text: "Don't trust anything that smells that good down here.",
+        onSuccess: { threadDelta: -1, resultBody: "Suspicion is probably the right instinct. It still costs you something to refuse a comfort that might have been real.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-which-way-smells-right",
+    tags: ["early"],
+    title: "Which Way Smells Right",
+    body: "Two ways, and nothing to recommend either beyond the thing in your chest that's been getting you this far, the part of you that doesn't explain itself, just points.",
+    choices: [
+      {
+        text: "Trust it without asking it to explain.",
+        check: { stat: "instinct", difficulty: 6 },
+        onSuccess: { threadDelta: 1, resultBody: "You stop demanding a reason and just go. The part of you that doesn't explain itself turns out to be worth listening to.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "You trust it, this time, and it's wrong, which was always possible, trusting your gut was never the same thing as being right.", next: "continue" },
+      },
+      {
+        text: "Pick the one that's, technically, wider. Reasons matter.",
+        onSuccess: { threadDelta: -1, resultBody: "Reasons matter, generally. This wasn't really a reasons kind of choice.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "early-thirteen-ahead",
+    tags: ["early"],
+    title: "Thirteen Ahead of You",
+    body: "Fourteen a year, his story said, for who knows how many years before him. You do the math without meaning to, and then wish you hadn't. That's a lot of people who were exactly as scared as you are right now.",
+    choices: [
+      {
+        text: "Let the number be real instead of looking away from it.",
+        check: { stat: "resolve", difficulty: 7 },
+        onSuccess: { threadDelta: 1, resultBody: "You hold the number instead of flinching from it, and something about not looking away is its own kind of honoring them.", next: "continue" },
+        onFail: { threadDelta: -2, resultBody: "The number stops being a fact and starts being a weight, and you weren't ready to carry it yet.", next: "continue" },
+      },
+      {
+        text: "Don't do the math. Some numbers don't help.",
+        onSuccess: { threadDelta: -1, resultBody: "Probably true. It costs you something to turn away from true things anyway.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "early-bones",
     tags: ["early"],
     title: "What's Left",
