@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { emptyStore, normalizeStore, emptyRun, uid, resolveCheck, applyThreadDelta } from "../data/model.js";
+import { emptyStore, normalizeStore, emptyRun, uid, resolveCheck, applyThreadDelta, addLoreFragment } from "../data/model.js";
 import { encounters } from "../data/encounters.js";
 import { generateRun } from "../utils/generateRun.js";
 
@@ -127,6 +127,9 @@ export function useGameStore() {
           // same run.status (e.g. two different ways to survive) instead of
           // showing identical framing for genuinely different outcomes.
           ending: outcome.ending || null,
+          // Set when this choice grants a Codex entry. RunScreen reads this
+          // off the latest log entry to show the "fragment found" note.
+          loreFragmentId: outcome.loreFragmentId || null,
           at: Date.now(),
         };
 
@@ -156,8 +159,16 @@ export function useGameStore() {
         }
 
         const updatedRun = { ...prev.run, thread: newThread, currentIndex: nextIndex, log: [...prev.run.log, logEntry], status, endedAt };
-        const meta =
-          status === "active" ? prev.meta : { ...prev.meta, deepestRoomReached: Math.max(prev.meta.deepestRoomReached, nextIndex) };
+
+        // Lore fragments can be found on any choice, not just terminal
+        // ones, so this check runs regardless of status, unlike
+        // deepestRoomReached below, which only matters once a run ends.
+        let meta = outcome.loreFragmentId
+          ? { ...prev.meta, loreFragmentsFound: addLoreFragment(prev.meta.loreFragmentsFound, outcome.loreFragmentId) }
+          : prev.meta;
+        if (status !== "active") {
+          meta = { ...meta, deepestRoomReached: Math.max(meta.deepestRoomReached, nextIndex) };
+        }
 
         return { ...prev, run: updatedRun, meta };
       });

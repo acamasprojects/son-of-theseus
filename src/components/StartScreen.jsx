@@ -1,4 +1,6 @@
-export default function StartScreen({ meta, startRun }) {
+import { loreFragments } from "../data/loreFragments.js";
+
+export default function StartScreen({ meta, startRun, onViewCodex }) {
   return (
     <div className="sot-shell">
       <h1 className="sot-title">Son of Theseus</h1>
@@ -10,6 +12,11 @@ export default function StartScreen({ meta, startRun }) {
       <div className="sot-start-actions">
         <button type="button" className="sot-btn sot-btn-primary" onClick={startRun}>
           Enter the Labyrinth
+        </button>
+      </div>
+      <div className="sot-start-actions">
+        <button type="button" className="sot-btn" onClick={onViewCodex}>
+          Codex ({meta.loreFragmentsFound.length} / {loreFragments.length} found)
         </button>
       </div>
       {meta.totalRuns > 0 && (

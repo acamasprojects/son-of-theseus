@@ -62,6 +62,12 @@ export function emptyRun(path) {
   };
 }
 
+/** Adds a lore fragment id to the found list, deduped. Pure, so the one place this logic lives is also the one place it's tested. */
+export function addLoreFragment(found, fragmentId) {
+  if (found.includes(fragmentId)) return found;
+  return [...found, fragmentId];
+}
+
 /** What survives across every descent. Not power progression, just a record of how many times you've gone down and how far. */
 export function emptyMeta() {
   return {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { encounters } from "../data/encounters.js";
+import { loreFragments } from "../data/loreFragments.js";
 import { STAT_LABEL } from "../data/model.js";
 
 /**
@@ -43,6 +44,7 @@ export default function RunScreen({ run, makeChoice }) {
   );
 
   if (showingResult) {
+    const foundFragment = lastEntry.loreFragmentId && loreFragments.find((f) => f.id === lastEntry.loreFragmentId);
     return (
       <div className="sot-shell">
         {header}
@@ -53,6 +55,7 @@ export default function RunScreen({ run, makeChoice }) {
             {lastEntry.threadDelta}
           </div>
         )}
+        {foundFragment && <div className="sot-fragment-found">Lore fragment found: {foundFragment.title}</div>}
         <div className="sot-start-actions">
           <button type="button" className="sot-btn sot-btn-primary" onClick={() => setAcknowledgedLength(run.log.length)}>
             Continue
