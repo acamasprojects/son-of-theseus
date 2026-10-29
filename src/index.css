@@ -176,6 +176,16 @@ button:focus-visible {
 .sot-result-delta { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin: -16px 0 24px; }
 .sot-result-delta-positive { color: var(--thread-2); }
 .sot-result-delta-negative { color: var(--danger-2); }
+.sot-fragment-found {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--accent-2);
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  padding: 8px 12px;
+  margin: -16px 0 24px;
+}
 
 /* ---------- end screen ---------- */
 .sot-end-status { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin: 0 0 8px; }
@@ -184,3 +194,11 @@ button:focus-visible {
 .sot-end-status-buried { color: var(--text-dim); }
 .sot-end-summary { font-size: 17px; line-height: 1.7; color: var(--text); text-align: center; margin: 0 0 32px; font-style: italic; }
 .sot-end-actions { display: flex; justify-content: center; }
+
+/* ---------- codex ---------- */
+.sot-codex-list { display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
+.sot-codex-entry { border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; background: var(--ink-2); }
+.sot-codex-entry-locked { opacity: 0.5; }
+.sot-codex-entry-title { font-family: var(--font-display); font-size: 16px; color: var(--text-bright); }
+.sot-codex-entry-locked .sot-codex-entry-title { color: var(--text-faint); font-family: var(--font-mono); letter-spacing: 0.1em; }
+.sot-codex-entry-body { font-size: 14.5px; line-height: 1.65; color: var(--text); margin: 8px 0 0; }

@@ -8,6 +8,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import { encounters } from "./encounters.js";
 import { emptyStats } from "./model.js";
+import { loreFragments } from "./loreFragments.js";
 
 const MAX_ROLL = 6;
 // All stats share the same starting value today (see emptyStats()). If that
@@ -51,5 +52,21 @@ describe("encounters content pool", () => {
   test("every encounter id is unique", () => {
     const ids = encounters.map((e) => e.id);
     assert.equal(new Set(ids).size, ids.length, "duplicate encounter ids found");
+  });
+
+  test("every loreFragmentId referenced on a choice outcome actually exists in loreFragments.js", () => {
+    const validIds = new Set(loreFragments.map((f) => f.id));
+    for (const encounter of encounters) {
+      for (const choice of encounter.choices) {
+        for (const outcome of [choice.onSuccess, choice.onFail]) {
+          if (outcome?.loreFragmentId) {
+            assert.ok(
+              validIds.has(outcome.loreFragmentId),
+              `${encounter.id} choice "${choice.text}" references loreFragmentId "${outcome.loreFragmentId}", which doesn't exist in loreFragments.js`
+            );
+          }
+        }
+      }
+    }
   });
 });

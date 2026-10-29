@@ -20,6 +20,7 @@ import {
   normalizeStore,
   resolveCheck,
   applyThreadDelta,
+  addLoreFragment,
 } from "./model.js";
 
 /** Every field in `expected` must exist (and not be `undefined`) on `actual`. */
@@ -107,5 +108,25 @@ describe("emptyStore", () => {
     const store = emptyStore();
     assert.equal(store.run, null);
     assert.deepEqual(store.meta, emptyMeta());
+  });
+});
+
+describe("addLoreFragment", () => {
+  test("adds a new id to an empty list", () => {
+    assert.deepEqual(addLoreFragment([], "ariadne"), ["ariadne"]);
+  });
+
+  test("adds a new id alongside existing ones", () => {
+    assert.deepEqual(addLoreFragment(["ariadne"], "asterion"), ["ariadne", "asterion"]);
+  });
+
+  test("is a no-op for an id that's already there, no duplicate entry", () => {
+    assert.deepEqual(addLoreFragment(["ariadne"], "ariadne"), ["ariadne"]);
+  });
+
+  test("doesn't mutate the array it was given", () => {
+    const found = ["ariadne"];
+    addLoreFragment(found, "asterion");
+    assert.deepEqual(found, ["ariadne"]);
   });
 });
