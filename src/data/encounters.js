@@ -633,6 +633,60 @@ export const encounters = [
     ],
   },
   {
+    id: "mid-what-the-dark-takes",
+    tags: ["mid"],
+    title: "What the Dark Takes",
+    body: "The torch gutters, catches, gutters again, and for one terrible stretch goes out completely. You have to move anyway, hands first, trusting your fingers to find what your eyes can't.",
+    choices: [
+      {
+        text: "Move by touch. Trust your hands over your fear of the dark.",
+        check: { stat: "instinct", difficulty: 8 },
+        onSuccess: { threadDelta: 1, resultBody: "Your hands know stone the way your eyes never learned to. You're through before the torch even catches again.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You misjudge a step your hands swore was solid, and the dark takes something from you before the light comes back.", next: "continue" },
+      },
+      {
+        text: "Stop. Wait for the torch to catch again, however long that takes.",
+        onSuccess: { threadDelta: -2, resultBody: "It catches, eventually. Eventually costs something too, down here.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-before-you-can-think",
+    tags: ["mid"],
+    title: "Before You Can Think",
+    body: "Something moves at the edge of your torchlight, fast, and your whole body goes to fight-or-flee before your mind catches up enough to ask what it actually was.",
+    choices: [
+      {
+        text: "Master the panic before it masters you.",
+        check: { stat: "resolve", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "You get there first, just barely, hold still long enough to see it was nothing, a draft, a shadow, your own fear casting itself ahead of you.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "The panic wins this round. You don't even remember deciding to run, just that you did.", next: "continue" },
+      },
+      {
+        text: "Let the fear move your feet. Explanations can come later.",
+        onSuccess: { threadDelta: -2, resultBody: "You run first and never do find out if there was anything worth running from.", next: "continue" },
+      },
+    ],
+  },
+  {
+    id: "mid-knot-he-showed-you",
+    tags: ["mid"],
+    title: "The Knot He Showed You",
+    body: "A gap in the floor, too wide to simply step. There's rope here, old, but rope. You remember him showing you a particular knot once, the one he said a sailor's son always needs to know, and you never quite understood why until exactly now.",
+    choices: [
+      {
+        text: "Tie it exactly the way he showed you.",
+        check: { stat: "memory", difficulty: 8 },
+        onSuccess: { threadDelta: 2, resultBody: "Your hands remember what your mind had to work to recall. It holds. He was right, you did need to know it.", next: "continue" },
+        onFail: { threadDelta: -3, resultBody: "You tie something close to it, not quite it, and close doesn't hold the same way exact does.", next: "continue" },
+      },
+      {
+        text: "Tie something that'll probably hold. Probably has to be good enough.",
+        onSuccess: { threadDelta: -2, resultBody: "It holds. \"Probably\" turns out to have been doing a lot of work in that sentence.", next: "continue" },
+      },
+    ],
+  },
+  {
     id: "boss-lair",
     tags: ["boss"],
     title: "The Lair",
