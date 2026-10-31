@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { emptyStore, normalizeStore, emptyRun, uid, resolveCheck, applyThreadDelta, addLoreFragment } from "../data/model.js";
+import { emptyStore, normalizeStore, emptyRun, uid, resolveCheck, applyThreadDelta, addUnique } from "../data/model.js";
 import { encounters } from "../data/encounters.js";
 import { generateRun } from "../utils/generateRun.js";
 
@@ -164,8 +164,14 @@ export function useGameStore() {
         // ones, so this check runs regardless of status, unlike
         // deepestRoomReached below, which only matters once a run ends.
         let meta = outcome.loreFragmentId
-          ? { ...prev.meta, loreFragmentsFound: addLoreFragment(prev.meta.loreFragmentsFound, outcome.loreFragmentId) }
+          ? { ...prev.meta, loreFragmentsFound: addUnique(prev.meta.loreFragmentsFound, outcome.loreFragmentId) }
           : prev.meta;
+        // outcome.ending is only ever set on a terminal choice (see
+        // boss-lair in encounters.js), so this naturally only fires when a
+        // run actually ends with a named ending.
+        if (outcome.ending) {
+          meta = { ...meta, endingsSeen: addUnique(meta.endingsSeen, outcome.ending) };
+        }
         if (status !== "active") {
           meta = { ...meta, deepestRoomReached: Math.max(meta.deepestRoomReached, nextIndex) };
         }
