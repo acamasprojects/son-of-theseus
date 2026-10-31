@@ -62,10 +62,10 @@ export function emptyRun(path) {
   };
 }
 
-/** Adds a lore fragment id to the found list, deduped. Pure, so the one place this logic lives is also the one place it's tested. */
-export function addLoreFragment(found, fragmentId) {
-  if (found.includes(fragmentId)) return found;
-  return [...found, fragmentId];
+/** Appends id to list if it's not already there, deduped. Pure, reused anywhere meta tracks "have I seen this before" (lore fragments, endings). */
+export function addUnique(list, id) {
+  if (list.includes(id)) return list;
+  return [...list, id];
 }
 
 /** What survives across every descent. Not power progression, just a record of how many times you've gone down and how far. */
@@ -74,6 +74,7 @@ export function emptyMeta() {
     totalRuns: 0,
     deepestRoomReached: 0,
     loreFragmentsFound: [],
+    endingsSeen: [],
   };
 }
 
@@ -107,6 +108,7 @@ export function normalizeMeta(m) {
     totalRuns: m?.totalRuns || 0,
     deepestRoomReached: m?.deepestRoomReached || 0,
     loreFragmentsFound: m?.loreFragmentsFound || [],
+    endingsSeen: m?.endingsSeen || [],
   };
 }
 

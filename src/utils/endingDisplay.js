@@ -4,11 +4,9 @@
 // only on terminal choices, see boss-lair in encounters.js) lets this tell
 // them apart instead of rendering identical framing for different endings.
 
-const ENDING_TITLE = {
-  truth: "You Follow Him Out",
-  buried: "You Become the Story",
-  broken: "The Labyrinth Claims You",
-};
+import { endings } from "../data/endings.js";
+
+const ENDING_TITLE = Object.fromEntries(endings.map((e) => [e.id, e.title]));
 
 const ENDING_STATUS_CLASS = {
   truth: "sot-end-status-escaped",

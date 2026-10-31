@@ -9,6 +9,7 @@ import assert from "node:assert/strict";
 import { encounters } from "./encounters.js";
 import { emptyStats } from "./model.js";
 import { loreFragments } from "./loreFragments.js";
+import { endings } from "./endings.js";
 
 const MAX_ROLL = 6;
 // All stats share the same starting value today (see emptyStats()). If that
@@ -63,6 +64,22 @@ describe("encounters content pool", () => {
             assert.ok(
               validIds.has(outcome.loreFragmentId),
               `${encounter.id} choice "${choice.text}" references loreFragmentId "${outcome.loreFragmentId}", which doesn't exist in loreFragments.js`
+            );
+          }
+        }
+      }
+    }
+  });
+
+  test("every ending tag referenced on a choice outcome actually exists in endings.js", () => {
+    const validIds = new Set(endings.map((e) => e.id));
+    for (const encounter of encounters) {
+      for (const choice of encounter.choices) {
+        for (const outcome of [choice.onSuccess, choice.onFail]) {
+          if (outcome?.ending) {
+            assert.ok(
+              validIds.has(outcome.ending),
+              `${encounter.id} choice "${choice.text}" references ending "${outcome.ending}", which doesn't exist in endings.js`
             );
           }
         }
